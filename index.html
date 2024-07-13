@@ -322,118 +322,34 @@
 
     </section>
 
-
     <script src="js/three.min.js"></script>
     <script src="js/TweenLite.min.js"></script>
-	  <script src="js/Math.js"></script>
-	  <script src="js/EffectShell.js"></script>
-	  <script src="js/RGBShiftEffect.js"></script>
-	  <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/Math.js"></script>
+    <script src="js/EffectShell.js"></script>
+    <script src="js/RGBShiftEffect.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
 	  
-	  <script>
+    <script>
 	const container = document.body
 	const itemsWrapper = document.querySelector('.grid')
 
-    // Preload images
-    const preloadImages = () => {
-        return new Promise((resolve, reject) => {
+        // Preload images
+        const preloadImages = () => {
+          return new Promise((resolve, reject) => {
             imagesLoaded(document.querySelectorAll('img'), resolve);
-        });
-    };
-    // And then..
-    preloadImages().then(() => {
+          });
+        };
+        // And then..
+        preloadImages().then(() => {
         // Remove the loader
         document.body.classList.remove('loading');
         const effect = new RGBShiftEffect(container, itemsWrapper, { strength: 0.25 })
 	});
-	</script>
+    </script>
 
     <script src="script.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    <script type="module">
-      import * as THREE from 'https://cdn.skypack.dev/three@0.124.0';
-      import { FBXLoader } from 'https://cdn.skypack.dev/three@0.134.0/examples/jsm/loaders/FBXLoader.js';
-
-      const canvas = document.getElementById('canvas');
-      const renderer = new THREE.WebGLRenderer({ canvas });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setClearColor(0x111111); // Set background color to #111111
-
-      const scene = new THREE.Scene();
-
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.set(0, 50, 100);
-
-      let mixer;
-      const clock = new THREE.Clock();
-
-      // Add ambient light
-      const ambientLight = new THREE.AmbientLight(0x222222, 0.5);
-      scene.add(ambientLight);
-
-      // Add colored point lights
-      const pointLight1 = new THREE.PointLight(0xf6fff8, 1, 500);
-      pointLight1.position.set(50, 50, 50);
-      scene.add(pointLight1);
-
-      const pointLight2 = new THREE.PointLight(0xeaf4f4, 1, 500);
-      pointLight2.position.set(-50, 50, 50);
-      scene.add(pointLight2);
-
-      const pointLight3 = new THREE.PointLight(0xfff5ee, 1, 500);
-      pointLight3.position.set(50, 50, -50);
-      scene.add(pointLight3);
-
-      const pointLight4 = new THREE.PointLight(0xf5e0e0, 1, 500);
-      pointLight4.position.set(-50, 50, -50);
-      scene.add(pointLight4);
-
-      const pointLight5 = new THREE.PointLight(0xe6e6fa, 1, 500);
-      pointLight5.position.set(0, 50, 0);
-      scene.add(pointLight5);
-
-      // Load FBX model
-      const loader = new FBXLoader();
-      loader.load('https://raw.githubusercontent.com/IN2Kcloud/BEYBIRS.com/main/media/LowPoly_Cat_V04.fbx', (object) => {
-          // Move the object down
-          object.position.y = -50;
-
-          scene.add(object);
-          
-          mixer = new THREE.AnimationMixer(object);
-          const action = mixer.clipAction(object.animations[0]);
-          action.play();
-      });
-
-      // Camera animation variables
-      let theta = 0;
-
-      const animate = () => {
-          requestAnimationFrame(animate);
-
-          const delta = clock.getDelta();
-          if (mixer) mixer.update(delta);
-
-          // Update camera position for a slow and creative movement
-          theta += 0.001; // Speed of the camera movement
-          camera.position.x = 100 * Math.sin(theta);
-          camera.position.z = 100 * Math.cos(theta);
-          camera.lookAt(0, 0, 0);
-
-          renderer.render(scene, camera);
-      };
-
-      const onWindowResize = () => {
-          camera.aspect = window.innerWidth / window.innerHeight;
-          camera.updateProjectionMatrix();
-          renderer.setSize(window.innerWidth, window.innerHeight);
-      };
-
-      window.addEventListener('resize', onWindowResize);
-
-      animate();
-  </script>
   </body>
 </html>
