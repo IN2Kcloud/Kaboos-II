@@ -113,6 +113,7 @@ canvas { display: block; position: absolute; top: 0px; left: 0px; z-index: -1; p
 }
 
 /* CSS from other files */
+/*
 .loading{display:flex;align-items:center;justify-content:center;position:fixed;top:0;right:0;bottom:0;left:0;z-index:100;background:#f1faee;opacity:0;transition:0.5s;}
 .before-load .loading{opacity:1;}
 @keyframes loading-spin{100%{transform:rotate(360deg);}}
@@ -120,3 +121,4 @@ canvas { display: block; position: absolute; top: 0px; left: 0px; z-index: -1; p
 .loading-circle{width:100px;height:100px;animation:loading-spin 2s infinite;}
 .loading-circle img{width:100px;height:100px;}
 .loading-circle circle{stroke:#171010;stroke-width:4;stroke-dasharray:157,157;stroke-dashoffset:0;fill:transparent;animation:loading-circle-ani 1s infinite;}
+*/
