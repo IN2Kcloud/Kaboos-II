@@ -6,14 +6,17 @@
 html, body { background-color: #111; margin: 0px; overflow-x: hidden; padding: 0px; }
 a { color: #f1f1f1; text-decoration: none; transition: all 0.5s ease-in-out; } /*a:hover{ filter: drop-shadow(0px 0px 10px #f1f1f1); }*/
 
-.canvas-container { position: absolute; width: 100vw; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; overflow: hidden;}
-#canvas{ height: 100%; width: 100%; /*z-index: 0;*/ }
-
+.LP{ display: flex; align-items: center; justify-content: center; width: 100vw; height: 100vh;}
 .text-container{ display: flex; /*flex-direction: column;*/ justify-content: space-between; align-items: center; top: 5%; height: 6vh; width: 100vw; position: absolute; padding: 2vw 5vw; background-color: #111; border-top: 3px solid #f1f1f1; border-bottom: 3px solid #f1f1f1; /*left: 0;*/ z-index: 3; } 
 .title{ font-size: 1rem; text-align: center; /*text-transform: uppercase;*/ letter-spacing: 0.5rem; font-weight: 500; color: #f1f1f1; }
 .title span {position: relative; z-index: 1;} .title span::before {content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: -0.25em; right: -0.25em; background-color: #f1f1f1; transform-origin: center right; transform: scaleX(0); transition: transform 0.2s ease-in-out;}.title span:hover::before { transform: scaleX(1); transform-origin: center left;}
 .title span:hover .titleII{color:#111; filter: drop-shadow(0px 0px 10px #111)}
-  
+
+.container { overflow: hidden; background: #f1faee; cursor: ew-resize; white-space: nowrap; padding: 10vh 0; }
+.ttl { font-family: "Rading", "Canopee", sans-serif; font-size: 12vw; position: relative; color: #000; display: inline-block; margin: 0; padding: 0 15%; will-change: transform; }
+@font-face{font-family:'Rading';src:url('./media/Rading.otf') format('opentype');font-display:swap;}
+@font-face{font-family:'Rading';src:url('./media/RadingRegular.ttf') format('truetype');font-display:swap;}  
+
 /*.socials{}*/
 
 .socialsII{font-size: 2rem; margin: 0 20px; transition: all 0.1s ease-in-out;}
@@ -22,11 +25,11 @@ a { color: #f1f1f1; text-decoration: none; transition: all 0.5s ease-in-out; } /
 
 /*HEADLINE*/
 
-.headline-container{ display: flex; align-items: center; justify-content: center; position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 3; mix-blend-mode: difference; }
+.headline-container{ display: flex; align-items: center; justify-content: center; position: absolute; top: 90%; left: 0; right: 0; pointer-events: none; z-index: 3; mix-blend-mode: difference; }
 #text-behind, #text-front, #text-behind-blur { font-family: 'Teko', 'Roboto', sans-serif; position: absolute; text-align: center; font-size: clamp(24px, 20vw, 200px); text-transform: uppercase; font-weight: 800; letter-spacing: 10px; line-height: 0.8; }
-#text-behind { color: #f1f1f1; z-index: 1; }
-#text-behind-blur { color: #f1f1f1; filter: blur(7.5px); -webkit-filter: blur(7.5px); z-index: 0; }
-#text-front { /*  Set text-color to transparent to only show the outline  */ color: transparent; -webkit-text-stroke: 2px #f1f1f1; z-index: 3; }
+#text-behind { color: #f1faee; z-index: 1; }
+#text-behind-blur { color: #f1faee; filter: blur(7.5px); -webkit-filter: blur(7.5px); z-index: 0; }
+#text-front { /*  Set text-color to transparent to only show the outline  */ color: transparent; -webkit-text-stroke: 2px #f1faee; z-index: 3; }
 
 /* ADDITIONAL */
 
@@ -38,7 +41,7 @@ a { color: #f1f1f1; text-decoration: none; transition: all 0.5s ease-in-out; } /
 
 /*SERVICES*/
 
-.body { align-items: center; background-color: #111; display: flex; width: 100vw; height: 100vh; justify-content: center; align-items: center; margin-top: 100vh; overflow: hidden; padding: 0px; }
+.body { align-items: center; background-color: #111; display: flex; width: 100vw; height: 100vh; justify-content: center; align-items: center; /*margin-top: 100vh;*/ overflow: hidden; padding: 0px; }
 section{ height: 100vh; width: 100%; position:relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #111; color: #f1f1f1; }
 .svc{font-size: 2vw; position: absolute; top: 15%;}
 .svc span {position: relative; display: flex; justify-content: center; text-align: center; z-index: 1; color: #111; filter: drop-shadow(0px 0px 10px #111)} .svc span::before {content: ''; position: absolute; z-index: -1; top: 10%; bottom: 20%; left: -0.25em; right: -0.25em; background-color: #f1faee; transform: scaleX(1); transform-origin: center left;}
@@ -64,9 +67,19 @@ canvas { display: block; position: absolute; top: 0px; left: 0px; z-index: 1; po
 .NAV span:hover {color:#111; -webkit-text-stroke: 3px #111; filter: drop-shadow(0px 0px 10px #111)}
 
 .bodyII { align-items: center; background-color: #111; display: flex; width: 100vw; height: 100vh; justify-content: center; align-items: center; margin-top: 0vh; overflow: hidden; padding: 0px; }
-.con span{ font-size: 6rem; line-height: 6rem; margin: 0 50px; }
+.con span{ font-size: 20rem; line-height: 20rem; margin: 0 100px; }
 .conimg {position: absolute; top:10vh; left: 35vw; width: 30vw; height: 10vw;}
 .conimg img{width: 100%; height: 100%; object-fit: cover;}
+
+.slider { position: absolute; top: 10vh; width: 80vw; height: 10vw; /* Increase height to accommodate larger items */ overflow: hidden; mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent); }
+.slider .list { display: flex; align-items: center; width: 100%; height: 100%; min-width: calc(6vw * var(--quantity)); /* Updated min-width */ position: relative; }
+.slider .list .item { width: 6vw; /* Updated width */ height: 100%; position: absolute; left: 100%; animation: autoRun 10s linear infinite; transition: filter 0.5s; animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1))!important; }
+.slider .list .item img { width: 100%; }
+@keyframes autoRun { from { left: 100%; } to { left: calc(6vw * -1); /* Updated width in animation */ } }
+.slider:hover .item { animation-play-state: paused!important; filter: grayscale(1); }
+.slider .item:hover { filter: grayscale(0); }
+.slider[reverse="true"] .item { animation: reversePlay 10s linear infinite; }
+@keyframes reversePlay { from { left: calc(6vw * -1); /* Updated width in animation */ } to { left: 100%; } }
 
 /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 
@@ -79,20 +92,24 @@ canvas { display: block; position: absolute; top: 0px; left: 0px; z-index: 1; po
   .svc{font-size: 3vw; top: 10%;}
   .svc-II{font-size: 3vw; position: absolute; top: 85%;}
 
+  .con span{ font-size: 9rem; line-height: 9rem; padding: 0 10px; }
+
 }
 
 @media (max-width: 1024px) {
   .title, .titleII{ font-size: 0.75rem; }
   .socialsII{font-size: 1.5rem; margin: 0 10px;}
+
   .svc{font-size: 2rem; top: 12%;}
-  .svc-II{font-size: 1.5rem; top: 88%;}
+  .svc-II{font-size: 1.5rem; top: 80%;}
+
   .app { position: absolute; left: 0%; top: 0%; right: 0%; bottom: 0%; height: 100%; }
   .h1 span{ font-size: 3rem; }
   .grid-items { flex-direction: column; }
   .divider { display: none; }
   .text{font-size: 2rem;}
 
-  .con span{ font-size: 3rem; line-height: 3rem; padding: 0 10px; }
+  .con span{ font-size: 6rem; line-height: 6rem; padding: 0 10px; }
 
 }
 
@@ -118,8 +135,17 @@ canvas { display: block; position: absolute; top: 0px; left: 0px; z-index: 1; po
   .divider { display: none; }
   .NAV span::before {top: 15%; bottom: 15%;}
 
-  .con span{ font-size: 2rem; line-height: 3rem; padding: 0 10px; }
+  .con { width: 100vw; display: flex; justify-content: center; align-items: center; text-align: center;}
+
+  .con span{ font-size: 6rem; line-height: 6rem; padding: 0 10px; text-align: center; flex-wrap: nowrap;}
   .conimg {position: absolute; top:20vh; left: 20vw; width: 60vw; height: 20vw;}
+
+  .slider { height: 20vw; /* Increase height to accommodate larger items */ }
+  .slider .list { min-width: calc(20vw * var(--quantity)); /* Updated min-width */ }
+  .slider .list .item { width: 20vw; /* Updated width */ }
+  @keyframes autoRun { from { left: 100%; } to { left: calc(20vw * -1); /* Updated width in animation */ } }
+  @keyframes reversePlay { from { left: calc(20vw * -1); /* Updated width in animation */ } to { left: 100%; } }
+
 }
 
 /* CSS from other files */
